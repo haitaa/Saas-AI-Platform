@@ -10,6 +10,7 @@ import { formSchema } from "./constants";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Empty } from "@/components/empty";
 
 const ConversationPage = () => {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -49,7 +50,7 @@ const ConversationPage = () => {
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading}
-                        placeholder="How do I calculate the radius of a circle?"
+                        placeholder="Bugün ne öğrenmek istiyorsunuz?"
                         {...field}
                       />
                     </FormControl>
@@ -65,7 +66,9 @@ const ConversationPage = () => {
             </form>
           </Form>
         </div>
-        <div className="space-y-4 mt-4">Messages Content</div>
+        <div className="space-y-4 mt-4">
+          <Empty label="No conversation started." />
+        </div>
       </div>
     </div>
   );
